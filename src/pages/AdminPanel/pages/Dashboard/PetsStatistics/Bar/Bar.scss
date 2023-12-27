@@ -1,0 +1,32 @@
+@import "../../../../../../styles/variables";
+
+.pets-statistics-bar {
+  @media (max-width: 420px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .card,
+    canvas {
+      width: 315px !important;
+      height: 330px !important;
+    }
+  }
+
+  @media (min-width: 420px) {
+    .card,
+    canvas {
+      width: auto !important;
+      height: 330px !important;
+    }
+  }
+
+  @media (min-width: $--md) {
+    .card,
+    canvas {
+      width: auto !important;
+      height: 500px !important;
+    }
+  }
+}

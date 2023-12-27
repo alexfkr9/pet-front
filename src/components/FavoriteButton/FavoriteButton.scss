@@ -1,0 +1,38 @@
+@import "../../styles/variables";
+
+.favorite-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: 1;
+  padding: 12px;
+  border: $--base-border;
+  background-color: $--color-white;
+  border-right: none;
+  border-bottom: none;
+  transition: all 0.3s ease-in-out;
+
+  &.active {
+    svg {
+      fill: $--color-secondary-10;
+    }
+  }
+
+  &:active {
+    background-color: $--color-secondary-10;
+  }
+}
+
+@media (hover: hover) {
+  .favorite-btn:hover {
+    background-color: $--color-secondary;
+
+    svg {
+      fill: $--color-black;
+    }
+
+    &:active {
+      background-color: $--color-secondary-10;
+    }
+  }
+}

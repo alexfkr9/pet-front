@@ -1,0 +1,105 @@
+@import "../../styles/_form";
+@import "../../styles/_variables";
+
+.message_wrapper {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-family: "Arial", sans-serif;
+  height: 100vh;
+}
+
+.message_container {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20vh;
+}
+
+.message-card {
+  padding: $--space-32;
+  border-radius: 4px;
+  background-color: $--color-white;
+}
+
+.site-logo {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+
+  img {
+    width: 64px;
+    height: 40px;
+    margin-bottom: $--space-24;
+    opacity: 60%;
+  }
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: $--font-size-large;
+  line-height: 30px;
+  margin-bottom: $--space-24;
+}
+
+hr {
+  color: #6e6f6e;
+  border-style: inset;
+  border-width: 1px;
+  margin: $--space-24 0;
+}
+
+.card-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: $--font-size-base;
+  line-height: $--space-24;
+  margin-bottom: $--space-24;
+}
+
+.message-footer-content {
+  .message-footer-text {
+    font-size: $--font-size-small;
+    color: #6e6f6e;
+    line-height: 150%;
+    font-family: arial;
+    margin: 0;
+  }
+
+  :first-child {
+    margin-bottom: 8px;
+  }
+
+  .label-text-us {
+    color: $--blue;
+  }
+}
+
+.message_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  border: none;
+  outline: none;
+}
+
+.message-btn {
+  padding: $--space-12 $--space-24;
+  font-weight: 700;
+  font-size: $--font-size-base;
+  line-height: $--space-24;
+  border: 1px solid #000000;
+
+  &:hover {
+    border: 1px solid #000000;
+  }
+
+  &:active {
+    color: $--color-white;
+    background-color: $--color-black;
+    border: none;
+    box-shadow: none;
+    left: 0;
+    top: 0;
+  }
+}

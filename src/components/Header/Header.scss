@@ -1,0 +1,15 @@
+@import "../../styles/_variables";
+
+.sniff-header {
+    border-bottom: 2px solid $--color-black;
+    background-color: $--color-white;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+@media(min-width: $--xl) {
+    .sniff-header {
+        z-index: 3;
+    }
+}

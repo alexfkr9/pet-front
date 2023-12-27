@@ -1,0 +1,16 @@
+.toast-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    width: 110px;
+    height: 45px;
+  }
+}

@@ -1,0 +1,84 @@
+@import "../../../styles/variables";
+
+.sniff-select {
+  border: $--base-border;
+  border-radius: $--border-radius;
+
+  &__lbl {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: $--color-black-60;
+    padding: 10px 8px 10px 16px;
+  }
+
+  &__container {
+    border: $--base-border;
+    border-radius: $--border-radius;
+    cursor: pointer;
+
+    .sniff-select {
+
+      &__value-container {
+        padding: 0;
+      }
+
+      &__control {
+        box-shadow: none;
+        border-color: $--color-black;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+          border-color: $--color-black;
+        }
+      }
+
+      &__indicator {
+        color: $--color-black;
+        &-separator {
+          display: none;
+         }
+      }
+
+      &__menu {
+        margin: 0;
+        border: $--base-border;
+        border-top: none;
+        border-radius: 6px;
+        margin: 0;
+
+        &-list {
+          padding: 0;
+        }
+      }
+
+      &__option {
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &--is-focused {
+          background-color: $--color-secondary-40;
+          color: $--color-black;
+        }
+
+        &:active,
+        &--is-selected {
+          background-color: $--color-secondary;
+          color: $--color-black;
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  &__value {
+    &-container {
+      cursor: pointer;
+    }
+  }
+
+  &__indicators {
+    cursor: pointer;
+  }
+}

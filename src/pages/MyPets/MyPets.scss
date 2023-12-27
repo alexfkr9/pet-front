@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+
+.sniff-my-pets {
+  @media (min-width: $--sm) {
+    .sniff-pets-list {
+      display: grid;
+      gap: $--space-16;
+      grid-template-columns: repeat(2, 1fr);
+      padding-bottom: 80px;
+
+      .card {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media (min-width: $--xl) {
+    .sniff-pets-list {
+      display: grid;
+      gap: $--space-24;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

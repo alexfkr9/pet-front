@@ -1,0 +1,57 @@
+@import "../../../styles/_variables";
+
+.sniff-nav-btn,
+.sniff-nav-btn-black {
+    padding: $--space-16;
+    color: $--color-black;
+    background: $--color-white;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;   
+    min-height: 60px; 
+
+    &:hover {
+        color: $--color-black;
+        background-color: $--color-primary;
+        cursor: pointer;
+    }  
+    
+    &:active {        
+        background-color: $--color-primary-10;
+    }
+
+    img {
+        width: 24px;
+        height: 24px;
+        display: block;
+    }
+}
+.sniff-nav-btn {
+    border-right: 2px solid $--color-black;
+}
+.btn-authorized svg {
+    fill: $--color-black;
+}
+
+@media (min-width: $--xl) {
+
+    .sniff-nav-btn,
+    .sniff-nav-btn-black {
+        padding: $--space-24 $--space-48;
+        min-width: 250px;
+        text-align: center;
+    }
+
+    .sniff-nav-btn-black {   
+        color: $--color-white;
+        background-color: $--color-black; 
+
+        &:hover {
+            color: $--color-black;
+            background: $--color-primary;
+        }
+    
+        &:active {        
+            background-color: $--color-primary-10;
+        }
+    }
+}

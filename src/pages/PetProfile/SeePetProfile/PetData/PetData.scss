@@ -1,0 +1,30 @@
+@import "../../../../styles/variables";
+
+.pet-data-list {
+    padding: 0;
+
+    li {
+        list-style: none;
+
+        @media(min-width: 490px) {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            column-gap: 12px;
+
+        }
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 12px;
+    }
+
+    &__title {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    // when there are two icons
+    &__value i+i {
+        margin-left: 12px;
+    }
+
+}

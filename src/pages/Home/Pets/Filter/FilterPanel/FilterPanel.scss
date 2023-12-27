@@ -1,0 +1,131 @@
+@import "../../../../../styles//variables";
+
+.sniff-filter-panel {
+  padding: 16px;
+
+  // style for Fieldset
+  .p-fieldset {
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 1.5;
+    color: $--color-black;
+    border: none;
+
+    &.сheckbox .p-toggleable-content {
+      .p-fieldset-content {
+        display: flex;
+        flex-direction: column;
+        margin-left: 24px;
+
+        .customData:not(:last-child) {
+          margin-bottom: 16px;
+        }
+
+        .p-radiobutton-box,
+        .p-checkbox-box {
+          border: 2px solid $--color-black;
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    .p-fieldset-legend {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // margin-bottom: 16px;
+      margin: 0;
+
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      line-height: 24px;
+      border: none;
+      background: none;
+
+      span {
+        color: $--color-black;
+      }
+    }
+
+    &.p-fieldset-toggleable {
+      .p-fieldset-legend {
+        a {
+          padding: 5px 0px 5px 5px;
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+
+      .p-icon {
+        width: 16px !important;
+        height: 16px !important;
+        color: $--color-black;
+      }
+
+      .p-checkbox-box.p-highlight {
+        background-color: $--purple;
+      }
+
+      .p-radiobutton-icon {
+        background-color: $--purple;
+        border: 2px solid $--color-black;
+      }
+
+      .p-highlight {
+        background-color: $--color-white;
+      }
+    }
+
+    .p-toggleable-content {
+      margin: 40px 0 8px 0;
+    }
+
+    .clear_btn {
+      color: $--additional-red;
+      border: none;
+      background-color: transparent;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+
+  // style for Select
+  .p-fieldset .p-fieldset-content {
+    padding: 0px;
+  }
+
+  .sniff-select__container {
+    border-radius: $--border-radius;
+    border: $--base-border;
+
+    &.disabled .css-1jqq78o-placeholder {
+      color: $--bs-alert-color;
+    }
+  }
+
+  .sniff-select {
+    &__value-container {
+      padding: 8px 14px;
+    }
+
+    &.disabled .css-1jqq78o-placeholder {
+      color: $--bs-alert-color;
+    }
+  }
+
+  .css-1u9des2-indicatorSeparator {
+    display: none;
+  }
+
+  .css-1xc3v61-indicatorContainer {
+    color: $--color-black;
+  }
+}

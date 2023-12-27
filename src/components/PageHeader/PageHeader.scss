@@ -1,0 +1,10 @@
+@import "../../styles//variables";
+
+.sniff-page-header {
+  margin: $--space-48 0;
+  
+  h1 {
+    max-width: 628px;
+    margin: 0;
+  }
+}

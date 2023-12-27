@@ -1,0 +1,73 @@
+@import "../../../styles/_variables";
+
+.sniff-nav-icon {
+    padding: $--space-16;
+    transition: all 0.3s ease-in-out;
+    border-left: 2px solid $--color-black;
+    position: relative;
+    width: 60px;
+    height: 60px;
+
+    &:nth-child(2) {
+        border-right: 2px solid $--color-black;
+    }
+
+    &:hover {
+        background-color: $--color-secondary;
+        cursor: pointer;
+
+        svg {
+            fill: $--color-black;
+        }
+    }
+
+    &-badge {
+        position: absolute;
+        top: 28px;
+        left: 30px;
+        border-radius: 50%;
+        border: 2px solid $--color-black;
+        background-color: $--purple;
+        height: 22px;
+        min-width: 22px;
+        overflow: hidden;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 18px;
+        color: $--color-black;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+    }
+}
+
+.sniff-nav-icon.active {
+    background-color: $--color-secondary-10;
+
+    svg {
+        fill: $--color-black;
+    }
+}
+
+.sniff-nav-icons {
+
+    &.navbar-nav {
+        flex-direction: row;
+        width: auto;
+        margin-left: auto;
+    }
+}
+
+@media (min-width: $--xl) {
+    .sniff-nav-icon {
+        padding: $--space-24 $--space-24 22px $--space-24;
+        width: 76px;
+        height: 72px;
+
+        &-badge {
+            top: 36px;
+            left: 38px;
+        }
+    }
+}

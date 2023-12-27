@@ -1,0 +1,59 @@
+@import "../../../../../styles/variables";
+
+.dashboard-clients-statistics {
+  width: auto;
+  height: auto;
+
+  background-color: $--color-white;
+  border-radius: 20px;
+  border: 1px solid #f8f9fa;
+  box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.5);
+  padding: 32px;
+
+  .header {
+    margin: 0 0 43px 0;
+    text-align: center;
+
+    span {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 32px;
+    }
+
+    @media (min-width: $--xl) {
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .card,
+    canvas {
+      width: 315px !important;
+      height: 330px !important;
+    }
+  }
+
+  @media (min-width: 420px) {
+    .card,
+    canvas {
+      width: auto !important;
+      height: 330px !important;
+    }
+  }
+
+  @media (min-width: $--md) {
+    .card,
+    canvas {
+      width: auto !important;
+      height: 500px !important;
+    }
+  }
+}

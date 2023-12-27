@@ -1,0 +1,25 @@
+@import "../../../../styles/variables";
+
+.action-body-template {
+  .btn-update:hover {
+    background-color: $--color-royal-blue !important;
+    border: 1px solid $--purple !important;
+
+    .icon-update {
+      color: $--color-light-gray;
+    }
+
+    transition: all 350ms linear;
+  }
+
+  .btn-delete:hover {
+    background-color: $--red !important;
+    border: 1px solid $--additional-red !important;
+
+    .icon-delete {
+      color: $--color-light-gray;
+    }
+
+    transition: all 350ms linear;
+  }
+}

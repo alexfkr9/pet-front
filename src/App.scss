@@ -1,0 +1,77 @@
+@import "../src/fonts/fonts.scss";
+@import "../src/styles/variables.scss";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $--color-black;
+
+  .container {
+    max-width: 1304px;
+  }
+}
+
+h1,
+ul,
+p {
+  margin: 0;
+}
+
+.sniff-btn-outline {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px 14px;
+  background-color: $--btn-outline-bg;
+  color: $--btn-outline-color;
+  border: $--base-border;
+  position: static;
+  top: 0;
+  left: 0;
+  transition: 0.2s linear;
+
+  &:hover {
+    background-color: $--btn-outline-bg;
+    color: $--btn-outline-color;
+    border: $--base-border;
+    top: -4px;
+    left: -4px;
+  }
+
+  &:not(.btn-check)+.btn:active,
+  &.btn:first-child:active,
+  &.active {
+    color: $--btn-outline-active-color;
+    background-color: $--btn-outline-active-bg;
+    border: $--base-border;
+
+    path,
+    svg {
+      fill: $--color-white;
+    }
+
+    .sniff-text-secondary {
+      color: $--color-black-40;
+    }
+  }
+}
+
+.sniff {
+  &-main {
+    flex: 1 1 auto;
+  }
+}

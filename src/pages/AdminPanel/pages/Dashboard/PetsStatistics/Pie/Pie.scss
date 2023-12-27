@@ -1,0 +1,28 @@
+@import "../../../../../../styles/variables";
+
+.pets-statistics-pie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 51px;
+
+  canvas {
+    width: 330px !important;
+    height: 330px !important;
+  }
+
+  .p-chart {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: $--md) {
+    gap: 31px;
+
+    canvas {
+      width: 400px !important;
+      height: 400px !important;
+    }
+  }
+}

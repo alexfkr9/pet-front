@@ -1,0 +1,26 @@
+@import "../../../../styles/variables";
+
+.pet-image {
+
+    .pet-wrapper {
+        position: relative;
+
+    }
+
+    .pet-wrapper::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    .see-pet-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        border-radius: $--border-radius;
+        border: $--base-border;
+    }
+
+}

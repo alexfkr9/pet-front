@@ -1,0 +1,30 @@
+@import "../../../../../styles//variables";
+
+.sniff-filter-total-count {
+  padding: 16px;
+  border-bottom: $--base-border;
+
+  span {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .count_control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .current_clear_btn {
+    color: $--additional-red;
+    border: none;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: 700;
+    display: none;
+  }
+
+  .visible {
+    display: block;
+  }
+}

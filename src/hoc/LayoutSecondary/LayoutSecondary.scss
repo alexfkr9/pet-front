@@ -1,0 +1,172 @@
+@import "../../styles/variables";
+@import "../../styles/_form";
+
+.form-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
+
+  .registration-form {
+    height: auto;
+  }
+}
+
+.form-wrapper {
+  width: 100%;
+  padding: 32px 20px 56px;
+
+  .return-home {
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      margin-left: 0;
+
+      img {
+        width: 12px;
+        height: 7px;
+      }
+
+      span {
+        font-family: inherit;
+        font-weight: 700;
+        font-size: $--font-size-small;
+        line-height: 18px;
+        color: $--color-black-60;
+      }
+    }
+  }
+
+  .form-heading {
+    margin: 44px 0 36px;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 35px;
+    text-align: center;
+  }
+}
+
+.form-background {
+  width: 100%;
+  height: 0;
+  background: url("../../assets/images/AuthBackgrDouble.png");
+  background-repeat: repeat-y;
+  background-size: 100%;
+  box-sizing: border-box;
+}
+
+.form-background ~ .form .auth {
+  height: 100vh;
+}
+
+@media (min-width: 430px) {
+  .form-wrapper {
+    .return-home {
+      a {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: $--sm) {
+  .form-container {
+    flex-direction: row;
+  }
+
+  .form-wrapper {
+    width: 59%;
+  }
+
+  .form-background {
+    width: 41%;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: $--md) {
+  .form-wrapper {
+    .form-heading {
+      margin: 48px 0 36px;
+      font-size: 28px;
+      line-height: 40px;
+    }
+  }
+}
+
+@media (min-width: $--lg) {
+  .form-wrapper {
+    .form-heading {
+      margin: 48px 0;
+      font-size: 32px;
+    }
+
+    .return-home {
+      a {
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+@media (min-width: $--xl) {
+  .form-wrapper {
+    padding: 32px 20px 32px;
+    .return-home {
+      a {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1500px) {
+  .form-wrapper {
+    .return-home {
+      a {
+        margin-left: 60px;
+      }
+    }
+  }
+}
+
+.form-holder {
+  max-width: 450px;
+  margin: $--space-48 auto;
+  &-header {
+    margin-bottom: $--space-48;
+    text-align: center;
+    font-weight: 800;
+    font-size: $--font-size-large;
+    line-height: 35px;
+  }
+  .form-btn {
+    margin-top: $--space-48;
+    text-align: center;
+  }
+  .btn {
+    margin: 0;
+  }
+  p  {
+    margin: 0;
+    &+ p {
+      margin-top: 8px;
+    }
+    &.form-holder-text {
+      margin-bottom: $--space-24;
+    }
+  }
+}
+
+@media (min-width: $--sm) {
+  .form-holder {
+    &-header {
+      font-size: $--font-size-32;
+      line-height: 40px;
+    }
+  }  
+}

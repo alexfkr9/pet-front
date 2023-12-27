@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+
+.pet-status-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px 14px;
+    z-index: 2;
+
+    border: $--base-border;
+    border-top-right-radius: $--border-radius;
+
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.5;
+
+    &--color-lost {
+        background-color: $--additional-red;
+    }
+
+    &--color-found {
+        background-color: $--color-primary;
+    }
+
+    &--color-success {
+        background-color: $--green;
+    }
+}

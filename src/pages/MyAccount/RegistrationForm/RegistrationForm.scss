@@ -1,0 +1,120 @@
+@import "../../../styles/_variables";
+@import "../../../styles/_form";
+@import "../../../styles/_buttons";
+
+.registr-form {
+    max-width: 690px;
+    margin: auto;
+
+    &-body {
+        margin-bottom: 8px;
+        margin: auto;
+        padding: 0;
+    }
+
+    &-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 56px;
+        max-width: 330px;
+        margin: 0 auto;
+    }
+}
+
+.registr-form-row {
+    .form-radio-group {
+        margin-bottom: 4px;
+    }
+
+    &:not(.checkbox-row), .form-group-first {
+        margin-bottom: 26px;
+    }
+}
+
+.form-result {
+    text-align: center;
+}
+
+@media(min-width: 430px) {
+    .registr-form {
+        .registr-form-body {
+            padding: 0 24px;
+        }
+    }
+}
+
+@media(min-width: $--sm) {
+    .registr-form {
+        .registr-form-body {
+            margin-bottom: 4px;
+            padding: 0 10px;
+
+            .registr-form-row .form-radio-group {
+                margin-bottom: 6px;
+            }
+        }
+
+        .registr-form-footer {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media(min-width: $--md) {
+    .registr-form {
+        .registr-form-body {
+            padding: 0 14px;
+
+            .registr-form-row .form-radio-group {
+                margin-bottom: 6px;
+            }
+        }
+    }
+}
+
+@media(min-width: $--lg) {
+    .registr-form {
+        .registr-form-body {
+            margin-bottom: 0;
+
+            .registr-form-row {  
+                .form-radio-group {
+                    margin-bottom: 10px;
+                }
+
+                .form-group-first {
+                    margin-bottom: 0;
+                }
+
+                &:not(.checkbox-row) {
+                    margin-bottom: 32px;
+                }
+            }
+        }
+
+        .registr-form-footer {
+            margin-bottom: 56px;
+        }
+    }
+}
+
+@media(min-width: $--xl) {
+    .registr-form {
+        .registr-form-body {
+            .registr-form-row {
+                .form-radio-group {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: 1340px) {
+    .registr-form {
+        .registr-form-body {
+            padding: 0;
+        }
+    }
+}

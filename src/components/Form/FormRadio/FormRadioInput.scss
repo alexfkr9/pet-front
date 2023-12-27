@@ -1,0 +1,51 @@
+@import "../../../styles/variables";
+
+.form-radio {
+  width: 100%;
+  position: relative;
+
+  &-label {
+    width: 100%;
+    display: inline-block;
+  }
+
+  &-text {
+    padding: 10px 50px 10px 16px;
+    display: inline-flex;
+    width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 24px;
+    border: 2px solid $--color-black;
+    border-radius: 6px;
+    transition: 0.2s ease-in-out;
+
+    &:before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: 2px solid $--color-black;
+      border-radius: 50%;
+      transition: 0.2s linear;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked ~ .form-radio-text {
+      background-color: $--purple;
+
+      &:before {
+        background-image: url("../../../assets/images/RadioBtnActive.svg");
+        border: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import "../../../../styles/_variables";
+
+.pet-header-title {
+    padding: $--space-32 $--space-8 30px;
+
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+
+    border-bottom: $--base-border;
+    background-color: $--green;
+}

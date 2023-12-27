@@ -1,0 +1,45 @@
+@import "../../../../styles/variables";
+
+.pet-title {
+    display: inline-flex;
+    position: relative;
+    margin-bottom: $--space-12;
+    padding-bottom: $--space-8;
+    font-size: $--font-size-large;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.pet-title::after {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: $--color-black;
+}
+
+.pet-description-text {
+    margin-bottom: $--space-12;
+    word-wrap: break-word;
+}
+
+.pet-description-footer {
+    font-size: $--font-size-small;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.pet-description-date {}
+
+.pet-description-date::before {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: $--space-8;
+    margin-right: $--space-8;
+    margin-bottom: 3px;
+    content: "";
+    width: $--space-4;
+    height: $--space-4;
+    background-color: #0000001a;
+}

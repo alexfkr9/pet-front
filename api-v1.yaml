@@ -1,0 +1,847 @@
+openapi: 3.0.3
+info:
+  title: Sniff API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+  - url: https://api-stage.sniff.com.ua
+tags:
+  - name: user
+    description: Operations about user
+  - name: post
+    description: Social post operations
+  - name: log
+    description: Admin logs operations
+paths:
+  /users:
+    post:
+      tags:
+        - user
+      description: Register new user
+      operationId: registerUser
+      requestBody:
+        description: New user information
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/NewUser"
+      responses:
+        "200":
+          description: New user.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+    get:
+      tags:
+        - user
+      operationId: getUsers
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: number
+          required: true
+        - in: query
+          name: lastId
+          schema:
+            type: number
+          required: true
+      responses:
+        "200":
+          description: A list of users.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+  /users/oauth/register:
+    post:
+      tags:
+        - user
+      description: Register new user with OAuth
+      operationId: registerUserWithOAuth
+      responses:
+        "200":
+          description: New user registered with OAuth.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+
+  /search-users:
+    get:
+      tags:
+        - user
+      operationId: getUserBySearchTerm
+      parameters:
+        - name: searchTerm
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Get user by search term.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: User with the specified ID or email was not found.
+  /users/{userId}:
+    get:
+      tags:
+        - user
+      operationId: getUserById
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Get user by ID.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: User with the specified ID was not found.
+    put:
+      tags:
+        - user
+      operationId: updateUserById
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: number
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/NewUser"
+      responses:
+        "200":
+          description: Update user.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: User with the specified ID was not found.
+    patch:
+      tags:
+        - user
+      operationId: updateUserRoleById
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: number
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: string
+      responses:
+        "200":
+          description: Role updated.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: User with the specified ID was not found.
+    delete:
+      tags:
+        - user
+      operationId: deleteUser
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Delete user.
+        "404":
+          description: User with the specified ID was not found.
+        "403":
+          description: Forbidden user access.
+  /whoami:
+    get:
+      tags:
+        - user
+      operationId: getCurrentUser
+      responses:
+        "200":
+          description: Get Info of currently login user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: Not found.
+
+  /users/{userId}/favourites:
+    get:
+      tags:
+        - user
+      operationId: getUserFavourite
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: List of favourite post ids
+          content:
+            application/json:
+              schema:
+                type: array
+                uniqueItems: true
+                items:
+                  type: number
+        "404":
+          description: List of favourite post ids was not found.
+    post:
+      tags:
+        - user
+      operationId: addUserFavourite
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: number
+      requestBody:
+        description: Add favourite post id
+        content:
+          application/json:
+            schema:
+              type: number
+      responses:
+        "200":
+          description: ok
+        "404":
+          description: Not found.
+
+  /users/{userId}/favourites/{postId}:
+    delete:
+      tags:
+        - user
+      operationId: deleteUserFavourite
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: number
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ok
+        "404":
+          description: Not found.
+
+  /posts:
+    get:
+      tags:
+        - post
+      operationId: getPosts
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: number
+          required: true
+        - in: query
+          name: lastId
+          schema:
+            type: number
+          required: true
+        - in: query
+          name: order
+          schema:
+            $ref: "#/components/schemas/PostsOrder"
+          required: true
+        - in: query
+          name: userId
+          schema:
+            type: number
+          required: false
+        - in: query
+          name: petType
+          schema:
+            $ref: "#/components/schemas/PetType"
+          required: false
+        - in: query
+          name: petBreed
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: petColor
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: petSize
+          schema:
+            $ref: "#/components/schemas/PetSize"
+          required: false
+        - in: query
+          name: petAge
+          schema:
+            $ref: "#/components/schemas/PetAge"
+          required: false
+        - in: query
+          name: vaccine
+          schema:
+            $ref: "#/components/schemas/Vaccine"
+          required: false
+        - in: query
+          name: castration
+          schema:
+            $ref: "#/components/schemas/Castration"
+          required: false
+        - in: query
+          name: gender
+          schema:
+            $ref: "#/components/schemas/Gender"
+          required: false
+        - in: query
+          name: diseases
+          schema:
+            $ref: "#/components/schemas/Diseases"
+          required: false
+        - in: query
+          name: post_type
+          schema:
+            $ref: "#/components/schemas/PostType"
+          required: false
+        - in: query
+          name: lostDateAfter
+          schema:
+            type: string
+            format: date
+          required: false
+        - in: query
+          name: foundDateAfter
+          schema:
+            type: string
+            format: date
+          required: false
+        - in: query
+          name: postCreatedDateAfter
+          schema:
+            type: string
+            format: date
+          required: false
+        - in: query
+          name: region
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: city
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: district
+          schema:
+            type: string
+          required: false
+      responses:
+        "200":
+          description: A list of posts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Post"
+        "404":
+          description: Posts with the specified parameters was not found.
+    post:
+      tags:
+        - post
+      operationId: addPost
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/Post"
+      responses:
+        "200":
+          description: Add new post.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "404":
+          description: Not found.
+        "403":
+          description: Forbidden user access.
+
+          # Get Post by ID
+  /posts/{postId}:
+    get:
+      tags:
+        - post
+      operationId: getPostById
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Get post by ID.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "404":
+          description: Post with the specified ID was not found.
+          # Update Post
+    put:
+      tags:
+        - post
+      operationId: updatePostById
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: number
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/Post"
+      responses:
+        "200":
+          description: Update post.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "404":
+          description: Post with the specified ID was not found.
+        "403":
+          description: Forbidden user access.
+
+          # Delete Post
+    delete:
+      tags:
+        - post
+      operationId: deletePost
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Delete post.
+        "404":
+          description: Post with the specified ID was not found.
+        "403":
+          description: Forbidden user access.
+
+    #Post photo
+  /posts/{postId}/photos:
+    post:
+      tags:
+        - post
+      operationId: uploadPostPhotos
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: number
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - files
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        "200":
+          description: Photos are uploaded, Ids of uploaded photos
+          content:
+            "application/json":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PhotoSaveResult"
+        "404":
+          description: Not found.
+        "413":
+          description: Request Entity Too Large. The uploaded file exceeds the maximum file size limit.
+
+  /posts/{postId}/photos/{photoId}:
+    get:
+      tags:
+        - post
+      operationId: getPostPhotoById
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: number
+        - name: photoId
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Get photo by id
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: Photo with the specified ID was not found.
+
+    delete:
+      tags:
+        - post
+      operationId: deletePostPhotoById
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: number
+        - name: photoId
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Photo was deleted.
+        "404":
+          description: Photo with the specified ID was not found.
+        "403":
+          description: Forbidden user access.
+
+  /logs:
+    get:
+      tags:
+        - log
+      operationId: getLogs
+      parameters:
+        - in: query
+          name: lastLogId
+          schema:
+            type: number
+          required: true
+        - in: query
+          name: limit
+          schema:
+            type: number
+          required: true
+
+      responses:
+        "200":
+          description: A list of logs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AuditLog"
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    NewUser:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - email
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        location:
+          $ref: "#/components/schemas/Location"
+        organisation:
+          type: string
+        secret:
+          type: string
+        hideContacts:
+          $ref: "#/components/schemas/HideContacts"
+        role:
+          $ref: "#/components/schemas/Role"
+    User:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - phone
+        - email
+      properties:
+        id:
+          type: number
+          readOnly: true
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        location:
+          $ref: "#/components/schemas/Location"
+        organisation:
+          type: string
+        hideContacts:
+          $ref: "#/components/schemas/HideContacts"
+        role:
+          $ref: "#/components/schemas/Role"
+        created:
+          type: string
+          format: date-time
+    Pet:
+      required:
+        - type
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        name:
+          type: string
+        type:
+          $ref: "#/components/schemas/PetType"
+        breed:
+          type: string
+        color:
+          type: string
+        gender:
+          $ref: "#/components/schemas/Gender"
+        age:
+          $ref: "#/components/schemas/PetAge"
+        size:
+          $ref: "#/components/schemas/PetSize"
+        vaccine:
+          $ref: "#/components/schemas/Vaccine"
+        castration:
+          $ref: "#/components/schemas/Castration"
+        diseases:
+          $ref: "#/components/schemas/Diseases"
+    Post:
+      required:
+        - author
+        - pet
+        - type
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        type:
+          $ref: "#/components/schemas/PostType"
+        author:
+          $ref: "#/components/schemas/User"
+        pet:
+          $ref: "#/components/schemas/Pet"
+        story:
+          type: string
+        postCreatedDate:
+          type: string
+          format: date-time
+          readOnly: true
+        lostDate:
+          type: string
+          format: date
+        foundDate:
+          type: string
+          format: date
+        foundLocation:
+          $ref: "#/components/schemas/Location"
+        currentLocation:
+          $ref: "#/components/schemas/Location"
+        lostLocation:
+          $ref: "#/components/schemas/Location"
+        photoIds:
+          type: array
+          items:
+            type: number
+        contactPhone:
+          type: string
+    Location:
+      type: object
+      properties:
+        region:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+    PhotoSaveResult:
+      required:
+        - fileName
+        - saveStatus
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        fileName:
+          type: string
+        saveStatus:
+          $ref: "#/components/schemas/PhotoSaveStatus"
+        comment:
+          type: string
+    AuditLog:
+      type: object
+      readOnly: true
+      properties:
+        id:
+          type: number
+          readOnly: true
+        adminId:
+          type: number
+        objectId:
+          type: number
+        objectType:
+          $ref: "#/components/schemas/ObjectType"
+        actionType:
+          $ref: "#/components/schemas/ActionType"
+        actionDate:
+          type: string
+          format: date-time
+        comment:
+          type: string
+        #Enums
+    HideContacts:
+      type: string
+      enum:
+        - "YES"
+        - "NO"
+      default: "YES"
+    Gender:
+      type: string
+      enum:
+        - MALE
+        - FEMALE
+        - UNKNOWN
+    PetType:
+      type: string
+      enum:
+        - "DOG"
+        - "CAT"
+        - "OTHER"
+    PetAge:
+      type: string
+      enum:
+        - _0_1
+        - _1_3
+        - _4_6
+        - _6_10
+        - ABOVE_10
+        - UNKNOWN
+    PetSize:
+      type: string
+      enum:
+        - SMALL
+        - MEDIUM
+        - LARGE
+    Vaccine:
+      type: string
+      enum:
+        - "YES"
+        - "NO"
+        - "UNKNOWN"
+    Castration:
+      type: string
+      enum:
+        - "YES"
+        - "NO"
+        - "UNKNOWN"
+    Diseases:
+      type: string
+      enum:
+        - "YES"
+        - "NO"
+    PostType:
+      type: string
+      enum:
+        - LOST
+        - FOUND
+    PostsOrder:
+      type: string
+      enum:
+        - ASC
+        - DESC
+    PhotoSaveStatus:
+      type: string
+      enum:
+        - SAVED
+        - INVALID
+        - IGNORED
+    Role:
+      type: string
+      enum:
+        - USER
+        - ADMIN
+      default: USER
+    ObjectType:
+      type: string
+      enum:
+        - USER
+        - POST
+    ActionType:
+      type: string
+      enum:
+        - UPDATE
+        - DELETE
+    LogOrder:
+      type: string
+      enum:
+        - ACTION_DATE_ASC
+        - ACTION_DATE_DESC
+
+security:
+  - bearerAuth: []

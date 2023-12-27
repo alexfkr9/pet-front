@@ -1,0 +1,4 @@
+./.aws/
+./.github/workflows
+.gitignore
+README.md

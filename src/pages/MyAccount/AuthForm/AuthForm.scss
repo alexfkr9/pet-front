@@ -1,0 +1,119 @@
+@import "../../../styles/_form";
+@import "../../../styles/_variables";
+
+.auth-form {
+    max-width: 690px;
+    padding: 0;
+    margin: auto;
+
+    .auth-form-body {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+
+        .auth-item {
+            position: relative;
+            width: 100%;
+            align-self: center;
+        }
+
+        .email-item {
+            margin-bottom: 20px;
+        }
+
+        .password-item {
+            .password-header {
+                display: flex;
+                justify-content: space-between;
+                
+                a {
+                    color: $--blue;
+                }
+            }
+        }
+    }
+
+    .auth-form-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 44px;
+        padding: 0;
+
+        a {
+            color: $--blue;
+        }
+    }
+}
+
+@media(min-width: 350px) {
+    .auth-form {
+        .auth-form-body, .auth-form-footer {
+            padding: 0 10px;
+        }
+    }
+}
+
+@media(min-width: 430px) {
+    .auth-form {
+        .auth-form-body, .auth-form-footer {
+            padding: 0 60px;
+        }
+    }
+}
+
+@media(min-width: $--sm) {
+    .auth-form {
+        .auth-form-body {
+            padding: 0 20px;
+
+            .email-item {
+                margin-bottom: 24px;
+            }
+        }
+
+        .auth-form-footer {
+            margin-bottom: 0;
+            padding: 0 20px;
+        }
+    }
+}
+
+@media(min-width: $--md) {
+    .auth-form {
+        .auth-form-body {
+            padding: 0 60px;
+
+            .email-item {
+                margin-bottom: 28px;
+            }
+        }
+
+        .auth-form-footer {
+            padding: 0 60px;
+
+            .btn {
+                padding: 24px 48px;
+                font-size: $--font-size-medium;
+                line-height: 30px;
+                margin: $--space-48 0 $--space-24;
+            }
+        }            
+    }
+}
+
+@media(min-width: $--lg) {
+    .auth-form {
+        .auth-form-body {
+            padding: 0 120px;
+
+            .email-item {
+                margin-bottom: 32px;
+            }
+        }
+
+        .auth-form-footer {
+            padding: 0 120px;
+        }
+    }
+}

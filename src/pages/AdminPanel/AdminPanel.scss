@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+.section.section-admin-panel {
+  background-color: $--color-white;
+
+  @media (min-width: $--xxl) {
+    .container {
+      min-width: 1440px;
+    }
+  }
+}

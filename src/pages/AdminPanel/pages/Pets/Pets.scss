@@ -1,0 +1,31 @@
+@import "../../../../styles/variables";
+
+.sniff-admin-pets {
+  background-color: $--color-light-gray;
+  border-radius: 0px 20px 20px 0px;
+  border: 1px solid #f8f9fa;
+  box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.5);
+  padding: 34px 17px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (min-width: $--xl) {
+    padding: 46px 32px;
+  }
+
+  @media (min-width: 1200px) {
+    &.col-xl-9 {
+      flex: 0 0 auto;
+      width: -webkit-fill-available;
+    }
+  }
+
+  @media (min-width: 1237px) {
+    &.col-xl-9 {
+      flex: 0 0 auto;
+      width: 75%;
+    }
+  }
+}

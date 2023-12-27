@@ -1,0 +1,38 @@
+@import "../../../../../styles//variables";
+
+.sniff-sort-selector {
+  padding: 16px;
+  border-bottom: $--base-border;
+
+  .select {
+    margin-top: 8px;
+    border-radius: $--border-radius;
+    border: $--base-border;
+
+    .css-1fdsijx-ValueContainer {
+      padding: 8px 14px;
+    }
+  }
+
+  .css-1u9des2-indicatorSeparator {
+    display: none;
+  }
+
+  .css-1xc3v61-indicatorContainer {
+    color: $--color-black;
+  }
+
+  .control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .clear_btn {
+    color: $--additional-red;
+    border: none;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: 700;
+  }
+}

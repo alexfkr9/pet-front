@@ -1,0 +1,70 @@
+@import "../../../../styles/variables";
+
+.widget-pet-profile {
+
+    .author-text {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 18px;
+
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    .author-title {
+        margin-bottom: $--space-16;
+        font-size: $--font-size-large;
+        font-weight: 800;
+        line-height: 1.25;
+    }
+
+    .author-phone-wrapper {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .author-phone-number {
+        flex-grow: 1;
+        padding: 10px $--space-16;
+        border: $--base-border;
+        border-radius: $--border-radius;
+        text-align: center;
+
+        text-decoration: none;
+        color: $--color-black;
+    }
+
+    .author-phone-btn {
+        flex-grow: 1;
+        padding: 10px $--space-16;
+
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+
+        position: relative;
+        top: 0;
+        left: 0;
+
+    }
+
+    .author-phone-btn:hover {
+        top: -4px;
+        left: -4px;
+        box-shadow: $--base-shadow;
+    }
+
+    // from another component
+    .favorite-btn {
+        position: static;
+
+        margin-left: $--space-12;
+        padding: 10px 10px;
+        border: $--base-border;
+        border-radius: $--border-radius;
+
+        svg {
+            display: block;
+        }
+    }
+}

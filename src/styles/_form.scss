@@ -1,0 +1,196 @@
+@import "./variables";
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello/font/fontello.eot');
+  src: url('../fonts/fontello/font/fontello.eot') format('embedded-opentype'),
+    url('../fonts/fontello/font/fontello.woff2') format('woff2'),
+    url('../fonts/fontello/font/fontello.woff') format('woff'),
+    url('../fonts/fontello/font/fontello.ttf') format('truetype'),
+    url('../fonts/fontello/font/fontello.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.form-control,
+.form-autocomplete__control {
+  width: 100%;
+  height: 48px;
+  margin: 0;
+  padding: $--space-12 $--space-16;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 24px;
+  border: 2px solid $--color-black;
+  border-radius: 6px;
+
+  &::placeholder {
+    color: $--color-black-40;
+  }
+
+  &:focus {
+    border: 2px solid $--color-black;
+    box-shadow: none;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}
+
+.form-autocomplete {
+  border: $--border-width solid $--border-color;
+  border-radius: $--border-radius;
+  height: $--space-48;
+}
+
+.form-password-wrapper,
+.form-password-confirmation-wrapper {
+  position: relative;
+}
+
+.form-password,
+.form-password-confirmation {
+  font-size: 16px;
+
+  &-hidden {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 2px;
+  }
+
+  &::placeholder {
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: $--color-black-40;
+    position: absolute;
+    top: 12px;
+  }
+}
+
+.btn-eye-toggle {
+  height: 30px;
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 9px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+
+  img {
+    height: 20px;
+    width: 20px;
+    opacity: 0.6;
+  }
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.form-link {
+  color: $--blue;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.form-org-rep {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.form-show-contact {
+  margin-top: 24px;
+}
+
+.form-checkbox-item label {
+  font-size: 16px;
+  line-height: 24px;
+  align-self: flex-start;
+}
+
+.checkbox-row {
+  margin-top: 15px;
+}
+
+.error-message {
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 8px;
+  color: $--red;
+}
+
+.error-checkbox {
+  font-size: 12px;
+  margin-left: 32px;
+  color: $--red;
+  margin-top: 8px;
+}
+
+.has-error {
+  border: 2px solid $--red;
+}
+
+
+.form-divider {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
+
+  hr {
+    border: 0.5px solid #000;
+    opacity: 1;
+    width: 100%;
+  }
+
+  span {
+    margin: 0 24px;
+  }
+}
+
+@media(min-width: $--sm) {
+  .form-show-contact {
+    margin-top: 28px;
+  }
+}
+
+@media(min-width: $--md) {
+  .form-show-contact {
+    margin-top: 32px;
+  }
+}
+
+@media(min-width: $--lg) {
+  .form-show-contact {
+    margin-top: 40px;
+  }
+
+  .error-message {
+    max-width: 333px;
+  }
+}
+
+.alert-danger {
+  color: $--bs-alert-color;
+  background-color: $--bs-alert-bg;
+  border: 2px solid $--bs-alert-border-color;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: $--space-32;
+}

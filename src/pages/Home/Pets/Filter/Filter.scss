@@ -1,0 +1,109 @@
+@import "../../../../styles//variables";
+
+.sniff-filter {
+  position: relative;
+
+  &-layout-opened {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(#000000, 0.6);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  &-content {
+    position: fixed;
+    top: 0;
+    left: -340px;
+    bottom: 0;
+    z-index: 3;
+    width: 320px;
+    background-color: $--color-white;
+    transition: all 350ms ease-in-out 0.1s;
+
+    &-opened {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 3;
+      width: 320px;
+      background: $--color-white;
+      transition: all 350ms ease-in-out 0.1s;
+
+      @media (max-width: $--xl) {
+        max-height: 100vh;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  &-btn {
+    text-align: right;
+
+    // .btn-outline-primary {
+    //   padding-top: 9px;
+    //   padding-bottom: 9px;
+    //   border: 1px solid rgb(0, 157, 255);
+
+    //   @media (max-width: $--sm) {
+    //     width: 100%;
+    //   }
+    // }
+
+    .p-button {
+      padding-top: 9px;
+      padding-bottom: 9px;
+      margin-bottom: 20px;
+
+      @media (max-width: $--sm) {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &-icon {
+      display: inline-flex;
+      margin-right: $--space-8;
+    }
+  }
+
+  &-btn-close {
+    padding: 16px;
+    width: 30px;
+    height: 30px;
+    background-size: 20px auto;
+  }
+}
+
+@media (min-width: $--xl) {
+  .sniff-filter {
+    // position: sticky;
+    // top: 100px;
+
+    // max-height: 100vh;
+    // overflow-y: auto;
+
+    &-content,
+    &-content-opened {
+      position: static;
+      width: auto;
+      height: auto;
+      border: 2px solid $--border-color;
+      border-radius: 6px;
+      margin-bottom: 30px;
+    }
+
+    &-layout-opened,
+    &-btn,
+    &-btn-close {
+      visibility: hidden;
+      opacity: 0;
+      display: none;
+    }
+  }
+}

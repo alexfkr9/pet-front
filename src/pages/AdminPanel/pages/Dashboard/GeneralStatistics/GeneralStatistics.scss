@@ -1,0 +1,116 @@
+@import "../../../../../styles/variables";
+
+.dashboard-general-statistics {
+  width: 100%;
+  height: auto;
+
+  background-color: $--color-white;
+  border-radius: 20px;
+  border: 1px solid #f8f9fa;
+  box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.5);
+  padding: 32px;
+
+  .header {
+    margin: 0 0 43px 0;
+
+    span {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 32px;
+    }
+
+    @media (min-width: $--xl) {
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .statistics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 31px;
+
+    .box {
+      width: 100%;
+      height: 200px;
+      border-radius: 16px;
+      padding: 20px;
+
+      display: flex;
+      flex-direction: column;
+
+      &.client {
+        background-color: $--color-pale-pink;
+
+        .statistics-icon {
+          background-color: $--color-candy-pink;
+        }
+      }
+
+      &.pets {
+        background-color: $--color-cream;
+
+        .statistics-icon {
+          background-color: $--color-coral;
+        }
+      }
+
+      &.lost {
+        background-color: $--color-pastel-green;
+
+        .statistics-icon {
+          background-color: $--color-fresh-green;
+        }
+      }
+
+      &.found {
+        background-color: $--color-soft-purple;
+
+        .statistics-icon {
+          background-color: $--color-bright-purple;
+        }
+      }
+
+      .value {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 32px;
+        margin-bottom: 8px;
+      }
+
+      .label {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        margin-bottom: 8px;
+      }
+
+      .increase {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        color: $--color-royal-blue;
+      }
+
+      @media (min-width: $--sm) {
+        width: 213px;
+      }
+    }
+
+    &-icon {
+      width: 40px;
+      height: 40px;
+      padding: 7px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      fill: $--color-white;
+    }
+  }
+}

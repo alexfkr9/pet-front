@@ -1,0 +1,27 @@
+@import "../../../../../styles/variables";
+
+.users-table {
+  width: auto;
+  height: auto;
+
+  background-color: $--color-white;
+  border-radius: 20px;
+  border: 1px solid #f8f9fa;
+  box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.5);
+  padding: 10px;
+
+  .p-datatable {
+    .p-datatable-header {
+      border-width: thin;
+    }
+
+    .p-datatable-wrapper .p-datatable-tbody,
+    .p-datatable-thead {
+      border: 1px solid #dee2e6;
+    }
+  }
+
+  @media (min-width: $--md) {
+    padding: 32px;
+  }
+}

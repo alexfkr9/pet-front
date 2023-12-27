@@ -1,0 +1,21 @@
+.p-toolbar {
+  .p-button {
+    width: auto;
+    height: 50px;
+  }
+
+  &-icon {
+    margin: 0 5px;
+  }
+
+  .left-btn-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}

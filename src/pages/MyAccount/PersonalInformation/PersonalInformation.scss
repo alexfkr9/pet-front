@@ -1,0 +1,48 @@
+@import "../../../styles/variables";
+
+.user-heading {
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0 auto;
+  margin: $--space-12 0 $--space-24;
+  font-size: $--font-size-medium;
+  line-height: 30px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  left: 0;
+  top: 0;
+
+  &:hover {
+    border: 1px solid $--color-black;
+    left: -4px;
+    top: -4px;
+  }
+
+  &:active {
+    color: $--color-black;
+    background-color: $--color-white;
+  }
+}
+
+.favorites-content {
+  border: $--base-border;
+  border-radius: $--border-radius;
+  padding: 12px 16px;
+}
+
+.favorites-link {
+  text-decoration: none;
+  font-size: $--font-size-medium;
+  color: $--color-black;
+  text-shadow: 2px 2px 2px $--color-primary;
+}
+
+.return-link {
+  text-decoration: none;
+  color: $--color-black;
+}

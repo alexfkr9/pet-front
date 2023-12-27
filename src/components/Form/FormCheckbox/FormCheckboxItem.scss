@@ -1,0 +1,46 @@
+@import "../../../styles/variables";
+
+.form-checkbox-item {
+  > * {
+    cursor: pointer;
+  }
+
+  .form-checkbox-input {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #000000;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    &:checked:before {
+      background-color: $--purple;
+    }
+
+    &:checked:after {
+      content: url("../../../assets/images/CheckMark.svg");
+      position: absolute;
+      bottom: -3px;
+      left: 4px;
+      z-index: 10;
+      cursor: pointer;
+    }
+  }
+}
+
+.has-error-privacy .form-checkbox-input {
+  &:before {
+    border: 2px solid $--red;
+  }
+}

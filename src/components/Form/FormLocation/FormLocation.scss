@@ -1,0 +1,101 @@
+@import "../../../styles/_variables";
+@import "../../../styles/_form";
+
+.pac-target-input {
+    width: 100%;
+}
+
+.search-location {
+    position: relative;
+}
+
+.search-location button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    right: $--space-12;
+    left: auto;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    color: $--color-black-40;
+
+    :hover {
+        color: $--color-black-60;
+    }
+
+    svg {
+        fill: currentColor;
+    }
+}
+
+.search-location input {
+    width: 100%;
+    padding: $--space-12 $--space-48 $--space-12 $--space-12;
+
+    ::placeholder {
+        color: $--color-primary;
+    }
+}
+
+// -----------------------------------------
+
+.pac-icon {
+    display: none;
+}
+
+.pac-container {
+    max-height: 150px;
+    background-color: $--color-white;
+    margin-top: 6px;
+    margin-left: 1.5px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: none;
+    outline: 2px solid;
+    border-radius: $--border-radius;
+
+    &:after {
+        /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+        background-image: none !important;
+        height: 0px;
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
+.pac-item {
+    padding: 12px 16px;
+    border: none;
+    transition: 0.2s ease-in-out;
+    color: $--color-black;
+    font-family: Mulish, sans-serif;
+    line-height: 24px;
+
+    &:hover {
+        background-color: rgb(239, 239, 239);
+        cursor: pointer;
+    }
+
+}
+
+.pac-item-query {
+    margin-right: 3px;
+    font-size: 16px;
+    font-weight: 500;
+
+    +span {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        color: $--color-black-40;
+    }
+}
+
+.pac-matched {
+    font-weight: 500;
+}

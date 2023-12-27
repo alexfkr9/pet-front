@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About component should render 1`] = `
+<DocumentFragment>
+  <section>
+    <div
+      class="sniff-about-section"
+    >
+      <div
+        class="sniff-about-info"
+      >
+        <h2
+          class="sniff-about-info-title"
+        >
+          Хто ми такі?
+        </h2>
+        <p
+          class="sniff-about-info-text"
+        >
+          Натхненна численними історiями про те, як українці допомагають чотирилапим, навіть ризикуючи власним життям та безпекою, команда Sniff допомагає обʼєднатись всім, хто розшукує свого улюбленця або готовий надати притулок тваринці, про яку зараз немає кому подбати.
+        </p>
+        <p>
+          Наша платформа охоплює користувачів з усіх регіонів України: це і волонтерські організаціі, і притулки, а також звичайні люди з надзвичайно добрим серцем.
+        </p>
+        <p />
+      </div>
+      <div
+        class="sniff-about-item"
+      >
+        <img
+          alt="Pattern"
+          class="sniff-about-item-image"
+          src="Pattern.svg"
+        />
+      </div>
+    </div>
+    <div
+      class="sniff-about-text"
+    >
+      <h1
+        class="sniff-about-text-title"
+      >
+        Маєте питання чи 
+        <br />
+         пропозиції?
+      </h1>
+      <a
+        class="sniff-about-text-btn btn btn-primary"
+        href="#"
+        role="button"
+        tabindex="0"
+      >
+        Написати нам
+      </a>
+    </div>
+  </section>
+</DocumentFragment>
+`;

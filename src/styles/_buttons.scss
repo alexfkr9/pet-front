@@ -1,0 +1,116 @@
+@import "./variables";
+
+.btn {
+  padding: $--space-24 $--space-32;
+}
+
+.btn-primary {
+  display: inline-block;
+  text-decoration: none;
+  color: $--color-white;
+  background-color: $--color-black;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  box-shadow: 0 0 0 $--color-black;
+  font-size: $--font-size-medium;
+  left: $--space-4;
+  top: $--space-4;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    color: $--color-black;
+    background: $--color-white;
+    border: 1px solid black;
+    left: 0;
+    top: 0;
+    box-shadow: $--space-4 $--space-4 0 $--color-black;
+  }
+
+  &:active {
+    color: $--color-white;
+    background-color: $--color-black;
+    left: $--space-4;
+    top: $--space-4;
+    box-shadow: none;   
+  }
+}
+
+.btn-submit {
+  width: 100%;
+  margin: $--space-48 0 $--space-24;
+  padding: 12px 0;
+  border: 2px solid transparent;
+  font-size: $--font-size-base;
+  line-height: 24px;
+  font-weight: 500;
+  left: 0;
+  top: 0;
+
+  &:hover {
+    border: 2px solid black;
+  }
+
+  &:active {
+    box-shadow: none !important;
+  }
+}
+
+.btn-facebook {
+  width: 100%;
+  margin: 24px 0;
+  padding: 12px 0;
+  background-color: $--color-white;
+  border-radius: 6px;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+
+  img {
+      margin-right: 8px;
+  }
+
+  &:hover {
+      border: 2px solid #000;
+      left: -4px;
+      top: -4px;
+      box-shadow: $--space-4 $--space-4 0 $--color-black;
+  }
+
+  &:active {
+      box-shadow: none;   
+  }
+}
+
+@media (min-width: $--xl) {
+  .btn {
+    padding: $--space-24 $--space-48;
+  }
+  .sniff-btn-outline,
+  .btn-primary {
+    position: relative;
+
+    &:hover {
+      box-shadow: $--base-shadow;
+    }
+  }
+}
+
+.btn.btn-primary:first-child {
+  &:hover {
+    color: $--color-black;
+    background: $--color-white;
+    left: 0;
+    top: 0;
+    box-shadow: $--space-4 $--space-4 0 $--color-black;
+  }
+
+  &:active {
+    color: $--color-white;
+    background-color: $--color-black;
+    left: $--space-4;
+    top: $--space-4;
+    box-shadow: none;   
+  }
+}

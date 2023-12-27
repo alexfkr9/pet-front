@@ -1,0 +1,171 @@
+@import "../../../../../styles/_variables";
+
+.pet-gallery-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.pet-gallery-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.pet-gallery {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+
+    padding: 0;
+    list-style: none;
+
+    width: 100%;
+
+    @media(min-width: $--sm) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media(min-width: 860px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &-item {
+
+        width: 100%;
+
+        .img-wrapper {
+            position: relative;
+            padding-bottom: 75%;
+        }
+
+        .img-wrapper img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            border-radius: $--border-radius;
+            transition: 0.3s ease-in-out;
+
+            &:hover,
+            &:active {
+                filter: brightness(1.1);
+            }
+        }
+
+        .img-wrapper:hover .del-icon {
+            opacity: 0.8;
+        }
+
+        .img-wrapper .del-icon {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+
+            opacity: 0;
+            background-color: $--color-black-10;
+
+            border-radius: 35%;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+
+            :hover {
+                fill: $--red;
+                opacity: 1;
+            }
+
+            :active {
+                fill: $--color-black
+            }
+        }
+    }
+
+    .add-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: $--size-base;
+        color: $--color-white;
+        background-color: $--color-black;
+
+        border-radius: $--border-radius;
+        border: $--btn-border;
+        box-shadow: 0 0 0 $--color-black;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+
+            color: $--color-black;
+            background: $--color-white;
+            box-shadow: $--space-4 $--space-4 0 $--color-black;
+            left: -$--space-4;
+            top: -$--space-4;
+        }
+
+        &:active {
+            color: $--color-white;
+            background-color: $--color-black;
+            left: 0;
+            top: 0;
+            box-shadow: none;
+        }
+
+        input {
+            display: none;
+        }
+
+    }
+
+}
+
+.pet-gallery-bg {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+
+    padding: 0;
+    list-style: none;
+
+    @media(min-width: $--sm) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media(min-width: 860px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.pet-gallery-bg-item {
+
+    width: 100%;
+
+    .img-wrapper {
+        position: relative;
+        padding-bottom: 75%;
+    }
+
+    .img-wrapper img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}

@@ -1,0 +1,52 @@
+@import "../../../../styles/_variables";
+@import "../../../../styles/_form";
+
+
+.custom-date-wrapper {
+    position: relative;
+
+    .calendar-icon {
+        position: absolute;
+        right: $--space-16;
+        top: 50%;
+        transform: translate(0, -50%);
+
+        width: 20px;
+        height: 20px;
+
+        pointer-events: none;
+    }
+
+    &:hover .calendar-icon {
+        opacity: 0.4;
+    }
+}
+
+
+.react-datepicker__input-container .pet-form-date {
+
+    @extend .form-autocomplete;
+    width: 100%;
+
+    &::placeholder {
+        font-weight: 500;
+        color: $--color-black-40;
+    }
+
+    &[value] {
+        padding-left: $--space-16;
+    }
+
+    &.has-error {
+        border-color: $--red;
+    }
+}
+
+
+
+.date-input {
+
+    .react-datepicker__navigation {
+        top: $--space-8;
+    }
+}

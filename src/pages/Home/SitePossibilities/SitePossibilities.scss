@@ -1,0 +1,140 @@
+@import "../../../styles/_variables.scss";
+
+.section {
+    max-width: 1440px;
+
+    &-about {
+        background-color: $--green;
+    } + .section {
+        border-top: 2px solid $--color-black;
+    }
+}
+
+.sniff-home-about {
+    padding: $--space-48 $--space-16;
+
+    .row {
+        padding: 0 $--space-12;
+    }
+}
+
+.sniff-home-title {
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 1.25;
+    text-align: center;
+    margin-bottom: $--space-32;
+}
+
+.sniff-home-item {
+    border: 2px solid $--color-black;
+    border-radius: 6px;
+    padding: $--space-16;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 44px 1fr;
+    column-gap: $--space-16;
+    font-size: 18px;
+    line-height: 1.25;
+    margin: 0 0 $--space-16;
+
+    &.red {
+        background-color: $--red;
+        &>span {
+            background-color: $--color-primary;
+        }
+    }
+
+    &.pink {
+        background-color: $--color-secondary;
+        &>span {
+            background-color: $--purple;
+        }
+    }
+
+    &.yellow {
+        background-color: $--color-primary;
+        &>span {
+            background-color: $--red;
+        }
+    }
+
+    &.purple {
+        background-color: $--purple;
+        &>span {
+            background-color: $--color-secondary;
+        }
+    }
+}
+
+.sniff-home-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $--color-black;
+    border-radius: 4px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+}
+
+
+@media(min-width: $--md) {
+    .sniff-home {
+
+        &-about {
+            padding: $--space-48 $--space-24;
+        }
+
+        &-title  {
+            font-size: 32px;
+            margin-bottom: $--space-32;
+        }
+
+        &-row {
+            column-gap: $--space-24;
+            justify-content: center;
+        }
+
+        &-item {
+            font-size: $--font-size-large;
+            grid-template-columns: 64px 1fr;
+            padding: $--space-24;
+        }
+
+        &-icon {
+            width: 64px;
+            height: 64px;
+            min-width: 64px;
+        }
+    }
+}
+
+
+@media(min-width: $--lg) {
+    .sniff-home {
+
+        &-row {
+            & + .sniff-home-row {
+                margin-top: $--space-24;
+            }
+        }
+
+        &-item {
+            width: calc(50% - $--space-12);
+            margin: 0;
+            column-gap: $--space-24;
+            max-width: 628px;
+        }
+    }
+}
+
+@media(min-width: $--xxl) {
+    .sniff-home-about {
+        padding: 80px 0;
+    }
+
+    .section {
+        margin: 0 auto;
+    }
+}
